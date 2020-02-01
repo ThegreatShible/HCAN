@@ -4,7 +4,7 @@ import os
 
 
 #Assign a value
-     = ""
+embedding_root_dir= ""
 
 def setup() :
     glove_url = "http://nlp.stanford.edu/data/glove.6B.zip"
