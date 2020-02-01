@@ -29,15 +29,15 @@ class SelfAttention(Layer) :
 
         splitted_res = []
         for i in range(0,self.h) : 
-        sqi = sq[i]
-        ski = sk[i]
-        svi = sv[i]
-        qk = tf.matmul(sqi, ski, transpose_b=True)
-        normed_qk = tf.math.divide(qk, math.sqrt(d))
-        #TODO : Axis of softmax
-        soft = tf.nn.softmax(normed_qk, axis=-2)
-        split_res = tf.matmul(soft, svi)
-        splitted_res.append(split_res)
+            sqi = sq[i]
+            ski = sk[i]
+            svi = sv[i]
+            qk = tf.matmul(sqi, ski, transpose_b=True)
+            normed_qk = tf.math.divide(qk, math.sqrt(d))
+            #TODO : Axis of softmax
+            soft = tf.nn.softmax(normed_qk, axis=-2)
+            split_res = tf.matmul(soft, svi)
+            splitted_res.append(split_res)
         res = tf.concat(splitted_res, -1)
         return res
 
