@@ -3,7 +3,7 @@
 This is an implementation of the neural network presented in the article ["Hierarchical Convolutional Attention Networks for Text Classification"](https://www.aclweb.org/anthology/W18-3002.pdf)
 
 ## Environement 
-The project is developed using Python 3.7, Tensorflow 1.15.0 and Keras on Tensorflow 2.2.4-tf.
+The project is developed using Python 3.7, Tensorflow 2.0.0 and Keras on Tensorflow 2.2.4-tf.
 
 ## How to build a HCAN
 To build a Keras HCAN model, you must execute the `build_HCAN` function in `src/HCAN.py`
