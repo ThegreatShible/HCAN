@@ -1,7 +1,10 @@
 import tensorflow as tf
 from tensorflow import keras
 import  tensorflow.keras.backend as K
-import keras.layers.*
+from tensorflow.keras.layers import *
+import numpy as np
+import math
+from tensorflow.keras import Model
 
 class SelfAttention(Layer) :
     
@@ -66,7 +69,7 @@ class TargetAttention(SelfAttention) :
         """
         super(TargetAttention, self).__init__(h,**kwargs)
 
-        def build(self, input_shape):
+    def build(self, input_shape):
         inshape = input_shape[-1][-1]
         self.T = self.add_weight(shape=(1,1,inshape),
                                 initializer='random_normal',
