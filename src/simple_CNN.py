@@ -1,6 +1,8 @@
 import tensorflow as tf
 from tensorflow import keras
-import keras.layers.*
+from tensorflow.keras.layers import *
+#from tensorflow.keras import Model
+
 
 def bulid_simple_CNN(embedding_matrix, max_text_length, filters_sizes, n_filters, activation_func, p, wv_trainable, nb_outputs) :
     """Build a simple 1D CNN model for text classification
@@ -34,5 +36,5 @@ def bulid_simple_CNN(embedding_matrix, max_text_length, filters_sizes, n_filters
     drop = Dropout(p, name="drop")(merge_conv)
     dense = Dense(nb_outputs, name="dense_layer")(drop)
     classif = Softmax(name="softmax")(dense)
-
-    return Model(inputs=input_words, outputs = classif)
+    model  =  tf.keras.Model(inputs=input_words, outputs = classif)
+    return model
