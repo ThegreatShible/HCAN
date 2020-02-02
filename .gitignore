@@ -5,6 +5,11 @@ src/__pycache__/
 *.py[cod]
 *.so
 
+
+src/.mypy_cache/
+demo/.ipynb_checkpoints/Demo_HCAN-checkpoint.ipynb
+
+
 # Distribution / packaging
 .Python
 env/
