@@ -38,7 +38,7 @@ class SelfAttention(Layer) :
             qk = tf.matmul(sqi, ski, transpose_b=True)
             normed_qk = tf.math.divide(qk, math.sqrt(d))
             #TODO : Axis of softmax
-            soft = tf.nn.softmax(normed_qk, axis=-2)
+            soft = tf.nn.softmax(normed_qk, axis=-1)
             split_res = tf.matmul(soft, svi)
             splitted_res.append(split_res)
         res = tf.concat(splitted_res, -1)
@@ -92,7 +92,7 @@ class TargetAttention(SelfAttention) :
         normed_qk = tf.math.divide(qk, math.sqrt(d))
         #TODO : Axis of softmax
         #Alpha dans ELU
-        soft = tf.nn.softmax(normed_qk, axis=-2)
+        soft = tf.nn.softmax(normed_qk, axis=-1)
         drop_soft = tf.nn.dropout(x = soft, rate = 0.1)
         split_res = tf.matmul(soft, sv)
         res = self._group(split_res)
